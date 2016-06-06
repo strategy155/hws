@@ -1,22 +1,15 @@
-import urllib.request
-import urllib.response
-import urllib.error
-import sys
+import tools
 import os
-import tarfile
 
-
-_BYTES_IN_MEGABYTES = 1024 * 1024
 _TEXT_COLLECTION_URL = 'http://web-corpora.net/bashcorpus/2011.tar.bz2'
+_COMPRESSION_TYPE = '.tar.bz2'
 
 
-def extract_tar_bz2_compressed(file_name):
-    with tarfile.open(file_name, "r") as _compressed_file:
-        _compressed_file.extractall()
+def _file_opening():
+    for root, dirs, files in os.walk(os.path.dirname(os.path.realpath(__file__) +
+                                                             tools.download_file(_TEXT_COLLECTION_URL, _COMPRESSION_TYPE))):
+        for name in files:
+            if not name.startswith('.'):
+                print(name)
 
-
-def _choosing_file_to_annotate():
-
-
-
-
+_file_opening()
