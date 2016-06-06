@@ -1,0 +1,297 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Frequently Asked Questions &mdash; Requests 2.10.0 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/badge_only.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '2.10.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+    <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+    <link rel="top" title="Requests 2.10.0 documentation" href="../../" />
+    <link rel="next" title="Recommended Packages and Extensions" href="../recommended/" />
+    <link rel="prev" title="Authentication" href="../../user/authentication/" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  
+<!-- RTD Extra Head -->
+
+<!-- 
+Always link to the latest version, as canonical.
+http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://docs.python-requests.org/en/master/community/faq/" />
+
+<link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+
+<script type="text/javascript" src="../../_static/readthedocs-data.js"></script>
+
+<!-- Add page-specific data, which must exist in the page js, not global -->
+<script type="text/javascript">
+READTHEDOCS_DATA['page'] = 'community/faq'
+</script>
+
+<script type="text/javascript" src="../../_static/readthedocs-dynamic-include.js"></script>
+
+<!-- end RTD <extrahead> --></head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="frequently-asked-questions">
+<span id="faq"></span><h1>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h1>
+<p>This part of the documentation answers common questions about Requests.</p>
+<div class="section" id="encoded-data">
+<h2>Encoded Data?<a class="headerlink" href="#encoded-data" title="Permalink to this headline">¶</a></h2>
+<p>Requests automatically decompresses gzip-encoded responses, and does
+its best to decode response content to unicode when possible.</p>
+<p>You can get direct access to the raw response (and even the socket),
+if needed as well.</p>
+</div>
+<div class="section" id="custom-user-agents">
+<h2>Custom User-Agents?<a class="headerlink" href="#custom-user-agents" title="Permalink to this headline">¶</a></h2>
+<p>Requests allows you to easily override User-Agent strings, along with
+any other HTTP Header.</p>
+</div>
+<div class="section" id="why-not-httplib2">
+<h2>Why not Httplib2?<a class="headerlink" href="#why-not-httplib2" title="Permalink to this headline">¶</a></h2>
+<p>Chris Adams gave an excellent summary on
+<a class="reference external" href="http://news.ycombinator.com/item?id=2884406">Hacker News</a>:</p>
+<blockquote>
+<div><p>httplib2 is part of why you should use requests: it's far more respectable
+as a client but not as well documented and it still takes way too much code
+for basic operations. I appreciate what httplib2 is trying to do, that
+there's a ton of hard low-level annoyances in building a modern HTTP
+client, but really, just use requests instead. Kenneth Reitz is very
+motivated and he gets the degree to which simple things should be simple
+whereas httplib2 feels more like an academic exercise than something
+people should use to build production systems[1].</p>
+<p>Disclosure: I'm listed in the requests AUTHORS file but can claim credit
+for, oh, about 0.0001% of the awesomeness.</p>
+<p>1. <a class="reference external" href="http://code.google.com/p/httplib2/issues/detail?id=96">http://code.google.com/p/httplib2/issues/detail?id=96</a> is a good example:
+an annoying bug which affect many people, there was a fix available for
+months, which worked great when I applied it in a fork and pounded a couple
+TB of data through it, but it took over a year to make it into trunk and
+even longer to make it onto PyPI where any other project which required &quot;
+httplib2&quot; would get the working version.</p>
+</div></blockquote>
+</div>
+<div class="section" id="python-3-support">
+<h2>Python 3 Support?<a class="headerlink" href="#python-3-support" title="Permalink to this headline">¶</a></h2>
+<p>Yes! Here's a list of Python platforms that are officially
+supported:</p>
+<ul class="simple">
+<li>Python 2.6</li>
+<li>Python 2.7</li>
+<li>Python 3.1</li>
+<li>Python 3.2</li>
+<li>Python 3.3</li>
+<li>Python 3.4</li>
+<li>PyPy 1.9</li>
+<li>PyPy 2.2</li>
+</ul>
+</div>
+<div class="section" id="what-are-hostname-doesn-t-match-errors">
+<h2>What are &quot;hostname doesn't match&quot; errors?<a class="headerlink" href="#what-are-hostname-doesn-t-match-errors" title="Permalink to this headline">¶</a></h2>
+<p>These errors occur when <a class="reference internal" href="../../user/advanced/#verification"><span>SSL certificate verification</span></a>
+fails to match the certificate the server responds with to the hostname
+Requests thinks it's contacting. If you're certain the server's SSL setup is
+correct (for example, because you can visit the site with your browser) and
+you're using Python 2.6 or 2.7, a possible explanation is that you need
+Server-Name-Indication.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Server_Name_Indication">Server-Name-Indication</a>, or SNI, is an official extension to SSL where the
+client tells the server what hostname it is contacting. This is important
+when servers are using <a class="reference external" href="https://en.wikipedia.org/wiki/Virtual_hosting">Virtual Hosting</a>. When such servers are hosting
+more than one SSL site they need to be able to return the appropriate
+certificate based on the hostname the client is connecting to.</p>
+<p>Python3 and Python 2.7.9+ include native support for SNI in their SSL modules.
+For information on using SNI with Requests on Python &lt; 2.7.9 refer to this
+<a class="reference external" href="https://stackoverflow.com/questions/18578439/using-requests-with-tls-doesnt-give-sni-support/18579484#18579484">Stack Overflow answer</a>.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><p class="logo">
+  <a href="../../">
+    <img class="logo" src="../../_static/requests-sidebar.png" title="Rezzy the Requests Sea Turtle"/>
+  </a>
+</p>
+<p>
+<iframe src="http://ghbtns.com/github-btn.html?user=kennethreitz&repo=requests&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+<p>
+  Requests is an elegant and simple HTTP library for Python, built for
+  human beings. You are currently looking at the documentation of the
+  development release.
+</p>
+
+<h3>Stay Informed</h3>
+<p>Receive updates on new releases and upcoming projects.</p>
+
+<p><a href="http://tinyletter.com/kennethreitz">Join Mailing List</a>.</p>
+
+<p><iframe src="http://ghbtns.com/github-btn.html?user=kennethreitz&type=follow&count=false"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200" height="20"></iframe></p>
+
+<p><a href="https://twitter.com/kennethreitz" class="twitter-follow-button" data-show-count="false">Follow @kennethreitz</a> <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></p>
+
+<h3>Other Projects</h3>
+
+<p>More <a href="http://kennethreitz.org/">Kenneth Reitz</a> projects:</p>
+<ul>
+    <li><a href="http://pep8.org/">pep8.org</a></li>
+    <li><a href="http://httpbin.org/">httpbin.org</a></li>
+    <li><a href="http://python-guide.org">The Python Guide</a></li>
+    <li><a href="https://github.com/kennethreitz/records">Records: SQL for Humans</a></li>
+    <li><a href="http://www.git-legit.org">Legit: Git for Humans</a></li>
+    <li><a href="http://docs.python-tablib.org/en/latest/">Tablib: Tabular Datasets</a></li>
+    <li><a href="http://markdownplease.com">Markdown, Please!</a></li>
+</ul>
+
+
+<h3>Translations</h3>
+
+<ul>
+  <li><a href="http://docs.python-requests.org/">English</a></li>
+  <li><a href="http://fr.python-requests.org/">French</a></li>
+  <li><a href="http://de.python-requests.org/">German</a></li>
+  <li><a href="http://jp.python-requests.org/">Japanese</a></li>
+  <li><a href="http://cn.python-requests.org/">Chinese</a></li>
+  <li><a href="http://pt.python-requests.org/">Portuguese</a></li>
+  <li><a href="http://it.python-requests.org/">Italian</a></li>
+  <li><a href="http://es.python-requests.org/">Spanish</a></li>
+</ul>
+
+  <h3><a href="../../">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Frequently Asked Questions</a><ul>
+<li><a class="reference internal" href="#encoded-data">Encoded Data?</a></li>
+<li><a class="reference internal" href="#custom-user-agents">Custom User-Agents?</a></li>
+<li><a class="reference internal" href="#why-not-httplib2">Why not Httplib2?</a></li>
+<li><a class="reference internal" href="#python-3-support">Python 3 Support?</a></li>
+<li><a class="reference internal" href="#what-are-hostname-doesn-t-match-errors">What are &quot;hostname doesn't match&quot; errors?</a></li>
+</ul>
+</li>
+</ul>
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../../">Documentation overview</a><ul>
+      <li>Previous: <a href="../../user/authentication/" title="previous chapter">Authentication</a></li>
+      <li>Next: <a href="../recommended/" title="next chapter">Recommended Packages and Extensions</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script><!-- Alabaster (krTheme++) Hacks -->
+
+<!-- CSS Adjustments (I'm very picky.) -->
+<style type="text/css">
+
+  /* Rezzy requires precise alignment. */
+  img.logo {margin-left: -20px!important;}
+
+  /* "Quick Search" should be capitalized. */
+  div#searchbox h3 {text-transform: capitalize;}
+
+  /* Make the document a little wider, less code is cut-off. */
+  div.document {width: 1008px;}
+
+  /* Much-improved spacing around code blocks. */
+  div.highlight pre {padding: 11px 14px;}
+
+  /* Remain Responsive! */
+  @media screen and (max-width: 1008px) {
+    div.sphinxsidebar {display: none;}
+    div.document {width: 100%!important;}
+
+    /* Have code blocks escape the document right-margin. */
+    div.highlight pre {margin-right: -30px;}
+  }
+
+</style>
+
+<!-- Analytics tracking for Kenneth. -->
+<script type="text/javascript">
+  var _gauges = _gauges || [];
+  (function() {
+    var t   = document.createElement('script');
+    t.type  = 'text/javascript';
+    t.async = true;
+    t.id    = 'gauges-tracker';
+    t.setAttribute('data-site-id', '56ca7a57c88d9011080024dd');
+    t.setAttribute('data-track-path', 'https://track.gaug.es/track.gif');
+    t.src = 'https://d36ee2fcip1434.cloudfront.net/track.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(t, s);
+  })();
+</script>
+
+<!-- There are no more hacks. -->
+<!--         இڿڰۣ-ڰۣ—         -->
+<!--   Love, Kenneth Reitz    -->
+
+<script src="../../_static//konami.js"></script>
+<script>
+  var easter_egg = new Konami('http://fortunes.herokuapp.com/random/raw');
+</script>
+
+<!-- That was not a hack. That was art. -->
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016. A <a href="http://kennethreitz.com/pages/open-projects.html">Kenneth Reitz</a> Project.
+      
+    </div>
+
+    
+    <a href="https://github.com/kennethreitz/requests" class="github">
+        <img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" alt="Fork me on GitHub"  class="github"/>
+    </a>
+    
+
+    
+  </body>
+</html>
