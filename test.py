@@ -9,7 +9,7 @@ _DEFAULT_CHUNK_SIZE = 128
 
 
 def download_file(url):
-    _file_requested = requests.get(url, stream=True)#_get_req_obj(url)
+    _file_requested = _get_req_obj(url)
     _local_filename = url.split('/')[-1]
     with open(_local_filename, 'wb') as _file_downloaded:
         _chunk_size = _get_size_spec_val_dic(_file_requested)['chunk-size']
@@ -21,9 +21,9 @@ def download_file(url):
     return _local_filename
 
 
-#def _get_req_obj(url):
-#    url = url.strip('/')
-#    return requests.get(url, stream=True)
+def _get_req_obj(url):
+    url = url.strip('/')
+    return requests.get(url, stream=True)
 
 
 def _get_size_spec_val_dic(req_obj):
@@ -45,7 +45,7 @@ def _get_size_spec_val_dic(req_obj):
                           'chunk-size': _chunk_size}
     return _size_spec_val_dic
 
-#''woototowo
+
 def _download_status(block_num, block_size, size_spec_val_dic):
     _read_so_far = block_num * block_size
     if size_spec_val_dic['total-size'] is not None:
@@ -60,4 +60,4 @@ def _download_status(block_num, block_size, size_spec_val_dic):
     return None
 
 
-download_file('http://docs.python-requests.org/en/master')
+download_file('http://web-corpora.net/bashcorpus/2011.tar.bz2')
